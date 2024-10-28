@@ -1,14 +1,16 @@
-# Лаабораторная работа №1
+# Лабораторная работа №1
 
 `Захаркин Богдан 367224. Вариант 3,28`
 
 ## Задача 3. Largest Prime Factor
+
 The prime factors of **13195** are **5**, **7**, **13** and **29**.
 What is the largest prime factor of the number **600851475143**?
 
-### Тут решение
+### Тут решение задачи 3
 
 ## Задача 28. Number Spiral Diagonals
+
 Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
 
 |        |        |        |        |        |
@@ -22,4 +24,4 @@ Starting with the number 1 and moving to the right in a clockwise direction a 5 
 It can be verified that the sum of the numbers on the diagonals is 101.
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 
-### Тут решение
+### Тут решение задачи 28
