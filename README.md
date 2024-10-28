@@ -11,6 +11,8 @@ What is the largest prime factor of the number **600851475143**?
 ## Задача 28. Number Spiral Diagonals
 Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
 
+|        |        |        |        |        |
+| ------ | ------ | ------ | ------ | ------ |
 | **21** | 22     | 23     | 24     | **25** |
 | 20     |  **7** |  8     |  **9** | 10     |
 | 19     |  6     |  **1** |  2     | 11     |
