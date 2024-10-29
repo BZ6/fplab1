@@ -21,7 +21,7 @@ jobs:
     - name: Setup formatter
       run: dotnet tool install -g fantomas
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/src.fsproj
       
     - name: Build
       run: dotnet build ./src
@@ -35,5 +35,6 @@ jobs:
 
     - name: Test
       run: |
+          dotnet restore tests/tests.fsproj
           dotnet build ./tests
           dotnet test ./tests
