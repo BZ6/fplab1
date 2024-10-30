@@ -3,7 +3,9 @@
 
 [<EntryPoint>]
 let main argv = 
-  printfn "number: %d" numberForTest
-  printfn "The largest prime factor of the number: %d" (task3Rec numberForTest)
+  printfn "number: %d" number
+  printfn "The largest prime factor of the number (recursive): %d" (task3Rec number)
+  printfn "The largest prime factor of the number (tail recursive): %d" (task3TailRec number)
+  printfn "The largest prime factor of the number (module): %d" (task3Module number)
 
   0
