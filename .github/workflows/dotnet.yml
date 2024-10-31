@@ -15,28 +15,32 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-        
-    - name: Setup linter  
-      run: dotnet tool install -g dotnet-fsharplint
-    - name: Setup formatter
-      run: dotnet tool install -g fantomas
+
     - name: Restore dependencies
       run: dotnet restore src/src.fsproj
-      
-    - name: Build
-      run: dotnet build ./src
-    - name: Lint 
-      run: |
-        dotnet-fsharplint lint src/Program.fs
-        dotnet-fsharplint lint src/Task3.fs
-  
-    - name: Format 
-      run: fantomas ./src/*.fs
 
-    - name: Run
+    - name: Build project
+      run: dotnet build ./src
+
+    - name: Set DOTNET_ROLL_FORWARD
+      run: echo "DOTNET_ROLL_FORWARD=latestMajor" >> $GITHUB_ENV
+
+    - name: Lint
+      run: |
+        dotnet tool install -g dotnet-fsharplint
+        echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+        dotnet fsharplint lint ./src
+
+    - name: Formatter
+      run: |
+        dotnet tool install -g fantomas-tool
+        echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+        fantomas ./src/*.fs    
+        
+    - name: Run project
       run: dotnet run --project ./src
 
-    - name: Test
+    - name: Test project
       run: |
           dotnet restore tests/tests.fsproj
           dotnet build ./tests
