@@ -26,7 +26,7 @@ jobs:
     - name: Build
       run: dotnet build ./src
     - name: Lint 
-      run: dotnet fsharplint lint ./src
+      run: dotnet-fsharplint lint ./src
     - name: Format 
       run: fantomas ./src/*.fs
 
