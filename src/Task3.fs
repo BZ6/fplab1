@@ -31,7 +31,7 @@ let task3Module num =
 
   let filterSimple factors = 
     let rec filterSimpleRec current simple factors = 
-      if List.length factors = 0 then simple
+      if List.isEmpty factors then simple
       else filterSimpleRec (List.head factors) (current :: simple) (List.filter (fun a -> a % current <> 0L) (List.tail factors))
 
     filterSimpleRec (List.head factors) [] factors
@@ -47,3 +47,25 @@ let task3Module num =
   |> filterSimple
   |> List.filter isFactor
   |> List.reduce maxFactor
+
+// Map solution
+let task3Map num =
+  let generateFactors n = [2L .. int64 (sqrt (float num))]
+
+  let isPrime n =
+    let rec check i =
+        i > n / 2L || (n % i <> 0L && check (i + 1L))
+    check 2
+    
+  let isFactor factor = (num % factor = 0L)
+
+  let mapThroughOption f list =
+    list
+    |> List.map (fun x -> if (f x) then Some x else None)
+    |> List.choose id
+
+  num
+  |> generateFactors
+  |> mapThroughOption isPrime
+  |> mapThroughOption isFactor
+  |> List.max
