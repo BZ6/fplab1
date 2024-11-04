@@ -78,3 +78,22 @@ let task3Cycle num =
     else factor <- factor + 1L
   
   factor
+
+// Lazy solution
+let task3Lazy num =
+  let generateFactors n = 
+    Seq.initInfinite (fun i -> int64 i + 2L)
+    |> Seq.takeWhile (fun x -> x <= int64 (sqrt (float n)))
+
+  let isPrime n =
+    let rec check i =
+      i > n / 2L || (n % i <> 0L && check (i + 1L))
+    check 2L
+  
+  let isFactor factor = (num % factor = 0L)
+
+  num
+  |> generateFactors
+  |> Seq.filter isPrime
+  |> Seq.filter isFactor
+  |> Seq.max
