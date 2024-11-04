@@ -9,7 +9,7 @@ let task3Rec num =
   let mutable factor = 2L
   let rec findFactor n =
     if n <= 1L then factor
-    elif (n % (int64 factor)) = 0L then findFactor (n / (int64 factor))
+    elif (n % factor) = 0L then findFactor (n / factor)
     else 
       factor <- factor + 1L
       findFactor n
@@ -69,3 +69,13 @@ let task3Map num =
   |> mapThroughOption isPrime
   |> mapThroughOption isFactor
   |> List.max
+
+// Cycle solution
+let task3Cycle num =
+  let mutable n = num
+  let mutable factor = 2L
+  while n > 1L do
+    if n % factor = 0L then n <- n / factor
+    else factor <- factor + 1L
+  
+  factor

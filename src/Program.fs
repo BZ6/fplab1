@@ -8,5 +8,6 @@ let main argv =
   printfn "The largest prime factor of the number (tail recursive): %d" (task3TailRec number)
   printfn "The largest prime factor of the number (module):         %d" (task3Module number)
   printfn "The largest prime factor of the number (map):            %d" (task3Map number)
+  printfn "The largest prime factor of the number (cycle):            %d" (task3Cycle number)
 
   0
