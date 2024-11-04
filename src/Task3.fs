@@ -59,10 +59,9 @@ let task3Map num =
     
   let isFactor factor = (num % factor = 0L)
 
-  let mapThroughOption f list =
-    list
-    |> List.map (fun x -> if (f x) then Some x else None)
-    |> List.choose id
+  let mapThroughOption f  =
+    List.map (fun x -> if (f x) then Some x else None)
+    >> List.choose id
 
   num
   |> generateFactors
