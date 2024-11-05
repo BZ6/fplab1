@@ -7,16 +7,20 @@ let rangForTest = 5
 // Monolithic solutions: Recursive
 let task28Rec num =
   let rec findSumDig n = 
-    if n = 1 then 1
-    else 4 * n * n - 6 * (n - 1) + findSumDig (n - 2)
+    if n = 1 then 
+      1
+    else 
+      4 * n * n - 6 * (n - 1) + findSumDig (n - 2)
   
   findSumDig num
 
 // Monolithic solutions: Tail recursive
 let task28TailRec num =
   let rec findSumDig acc n  = 
-    if n = 1 then acc
-    else findSumDig (acc + 4 * n * n - 6 * (n - 1)) (n - 2) 
+    if n = 1 then 
+      acc
+    else 
+      findSumDig (acc + 4 * n * n - 6 * (n - 1)) (n - 2) 
   
   findSumDig 1 num
 
