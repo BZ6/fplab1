@@ -108,6 +108,6 @@ let task3Lazy num =
     num
     |> generateFactors
     |> Seq.filter isPrime
-    |> Seq.filter isFactor
     |> Seq.takeWhile (fun x -> x <= int64 (sqrt (float num)))
+    |> Seq.filter isFactor
     |> Seq.max
