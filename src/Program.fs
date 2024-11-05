@@ -13,12 +13,12 @@ let printTimeFunc message f num =
 [<EntryPoint>]
 let main argv = 
   printfn "number: %d" number
-  printTimeFunc "The largest prime factor of the number (recursive):      %d" task3Rec number
-  printTimeFunc "The largest prime factor of the number (tail recursive): %d" task3TailRec number
-  printTimeFunc "The largest prime factor of the number (module):         %d" task3Module number
-  printTimeFunc "The largest prime factor of the number (map):            %d" task3Map number
-  printTimeFunc "The largest prime factor of the number (cycle):          %d" task3Cycle number
-  printTimeFunc "The largest prime factor of the number (lazy):           %d" task3Lazy number
+  printTimeFunc "The largest prime factor of the number (recursive):      " task3Rec number
+  printTimeFunc "The largest prime factor of the number (tail recursive): " task3TailRec number
+  printTimeFunc "The largest prime factor of the number (module):         " task3Module number
+  printTimeFunc "The largest prime factor of the number (map):            " task3Map number
+  printTimeFunc "The largest prime factor of the number (cycle):          " task3Cycle number
+  printTimeFunc "The largest prime factor of the number (lazy):           " task3Lazy number
 
   printfn "rang: %d" rang
   printTimeFunc "The summary of spiral diagonals (recursive): " task28Rec rang
