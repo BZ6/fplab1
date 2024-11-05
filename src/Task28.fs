@@ -54,7 +54,28 @@ let task28Module num =
 
 
 // Map solution
-// let task28Map num =
+let task28Map num =
+  let generateSpiral n = [ for i in 3 .. 2 .. n -> [((i - 2) * (i - 2) + 1) .. (i * i)] ]
+
+  let i = ref 1
+  let mapThroughOption list =
+    let isDiagonal n i =
+      i = n * n || 
+      i = n * n - (n - 1) || 
+      i = n * n - 2 * (n - 1) || 
+      i = n * n - 3 * (n - 1)
+
+    i.Value <- i.Value + 2
+    list
+    |> List.map (fun x -> if (isDiagonal i.Value x) then Some x else None)
+
+  num
+  |> generateSpiral
+  |> List.map mapThroughOption
+  |> List.reduce (@)
+  |> List.choose id
+  |> List.sum
+  |> (+) 1
 
 
 // Cycle solution
