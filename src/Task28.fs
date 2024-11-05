@@ -21,7 +21,32 @@ let task28TailRec num =
   findSumDig 1 num
 
 // Module solution
-// let task28Module num =
+let task28Module num =
+  let generateSpiral n = [ for i in 3 .. 2 .. n -> [((i - 2) * (i - 2) + 1) .. (i * i)] ]
+
+  let filterDiagonals lists =
+    let isDiagonal n i =
+      i = n * n || 
+      i = n * n - (n - 1) || 
+      i = n * n - 2 * (n - 1) || 
+      i = n * n - 3 * (n - 1)
+
+    let rec filterDiagonalsRec current result lists n =
+      if List.isEmpty lists then
+        ((List.filter (isDiagonal n) current) @ result)
+      else
+        filterDiagonalsRec
+          (List.head lists)
+          ((List.filter (isDiagonal n) current) @ result)
+          (List.tail lists)
+          (n + 2)
+
+    filterDiagonalsRec (List.head lists) [] (List.tail lists) 3
+
+  num
+  |> generateSpiral
+  |> filterDiagonals
+  |> List.fold (+) 1
 
 
 // Map solution
