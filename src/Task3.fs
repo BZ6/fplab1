@@ -96,7 +96,6 @@ let task3Cycle num =
 let task3Lazy num =
     let generateFactors n =
         Seq.initInfinite (fun i -> int64 i + 2L)
-        |> Seq.takeWhile (fun x -> x <= int64 (sqrt (float n)))
 
     let isPrime n =
         let rec check i =
@@ -110,4 +109,5 @@ let task3Lazy num =
     |> generateFactors
     |> Seq.filter isPrime
     |> Seq.filter isFactor
+    |> Seq.takeWhile (fun x -> x <= int64 (sqrt (float num)))
     |> Seq.max
