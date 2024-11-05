@@ -25,7 +25,6 @@ let main argv =
   printTimeFunc "The summary of spiral diagonals (tail recursive): " task28TailRec rang
   printTimeFunc "The summary of spiral diagonals (module):         " task28Module rang
   printTimeFunc "The summary of spiral diagonals (map):            " task28Map rang
-  // printTimeFunc "The summary of spiral diagonals (cycle):          " task28Cycle rang
-  // printTimeFunc "The summary of spiral diagonals (lazy):           " task28Lazy rang
+  printTimeFunc "The summary of spiral diagonals (cycle):          " task28Cycle rang
 
   0

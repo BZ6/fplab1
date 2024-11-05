@@ -79,9 +79,12 @@ let task28Map num =
 
 
 // Cycle solution
-// let task28Cycle num =
+let task28Cycle num =
+  let mutable sum = 1;
+  let mutable cur = 1;
+  for i in 2 .. 2 .. (num - 1) do
+    for _ in 0 .. 3 do
+      cur <- cur + i;
+      sum  <- sum + cur;
 
-
-// Lazy solution
-// let task28Lazy num =
-
+  sum     
