@@ -1,13 +1,13 @@
 ﻿open System.Diagnostics
 open Task3
-//open Task28
+open Task28
 
 // Calculate time of solution
 let printTimeFunc message f num =
   let stopwatch = Stopwatch.StartNew()
   let result = f num
   stopwatch.Stop()
-  printfn "%s %d" message result
+  printfn "%s %A" message result
   printfn "Time taken: %A ms" stopwatch.ElapsedMilliseconds
 
 [<EntryPoint>]
@@ -19,5 +19,8 @@ let main argv =
   printTimeFunc "The largest prime factor of the number (map):            %d" task3Map number
   printTimeFunc "The largest prime factor of the number (cycle):          %d" task3Cycle number
   printTimeFunc "The largest prime factor of the number (lazy):           %d" task3Lazy number
+
+  printfn "rang: %d" rang
+  printTimeFunc "The summary of spiral diagonals (recursive): " task28Rec rang
 
   0
