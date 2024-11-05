@@ -13,8 +13,12 @@ let task28Rec num =
   findSumDig num
 
 // Monolithic solutions: Tail recursive
-// let task28TailRec num =
-
+let task28TailRec num =
+  let rec findSumDig acc n  = 
+    if n = 1 then acc
+    else findSumDig (acc + 4 * n * n - 6 * (n - 1)) (n - 2) 
+  
+  findSumDig 1 num
 
 // Module solution
 // let task28Module num =
