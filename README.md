@@ -316,3 +316,22 @@ int main()
 Код на питоне и C++ выглядят приятнее и компактнее, возможно от того, что я там использовал циклы.
 
 Возможно некоторые решения вышли громоздкими и не оптимальными, но мне нужно было их попробовать, для практики в некоторых особеностях языка f#.
+
+### Правки
+
+#### Fix immutable (except cycle solution)
+
+```f#
+let task3Rec num =
+    let rec findFactor factor n =
+        if n <= 1L then
+            factor
+        elif (n % factor) = 0L then
+            let n = n / factor
+            findFactor factor n
+        else
+            let factor = factor + 1L
+            findFactor factor n
+
+    findFactor 2L num
+```

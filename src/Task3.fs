@@ -6,18 +6,17 @@ let numberForTest = 13195L
 
 // Monolithic solutions: Recursive
 let task3Rec num =
-    let mutable factor = 2L
-
-    let rec findFactor n =
+    let rec findFactor factor n =
         if n <= 1L then
             factor
         elif (n % factor) = 0L then
-            findFactor (n / factor)
+            let n = n / factor
+            findFactor factor n
         else
-            factor <- factor + 1L
-            findFactor n
+            let factor = factor + 1L
+            findFactor factor n
 
-    findFactor num
+    findFactor 2L num
 
 // Monolithic solutions: Tail recursive
 let task3TailRec num =
