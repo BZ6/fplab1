@@ -18,15 +18,13 @@ let task3Rec num =
 
     findFactor 2L num
 
-// Monolithic solutions: Tail recursive
+// Monolithic solutions: Tail recursive with pattern matching
 let task3TailRec num =
     let rec findFactor factor n =
-        if n <= 1L then
-            factor
-        elif (n % factor) = 0L then
-            findFactor factor (n / factor)
-        else
-            findFactor (factor + 1L) n
+        match n with
+        | _ when n <= 1L -> factor
+        | _ when (n % factor) = 0L -> findFactor factor (n / factor)
+        | _ -> findFactor (factor + 1L) n
 
     findFactor 2L num
 

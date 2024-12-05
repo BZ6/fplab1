@@ -335,3 +335,16 @@ let task3Rec num =
 
     findFactor 2L num
 ```
+
+#### Use pattern matching
+
+```f#
+let task3TailRec num =
+    let rec findFactor factor n =
+        match n with
+        | _ when n <= 1L -> factor
+        | _ when (n % factor) = 0L -> findFactor factor (n / factor)
+        | _ -> findFactor (factor + 1L) n
+
+    findFactor 2L num
+```
